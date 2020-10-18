@@ -1,11 +1,11 @@
+//ENV LOADING
 require("dotenv").config();
 
 const linebot = require("linebot");
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const jwt = require("jsonwebtoken");
-const rp = require("request-promise");
+const Zoom = require("./component/Zoom");
 
 var bot = linebot({
   channelId: process.env.CHANNEL_ID,
@@ -34,6 +34,7 @@ bot.on("message", function (event) {
     .reply(event.message.text)
     .then(function (data) {
       console.log("Success", data);
+      console.log(Zoom.getConfig());
     })
     .catch(function (err) {
       console.log("Error", error);
@@ -43,41 +44,3 @@ bot.on("message", function (event) {
 app.listen(process.env.PORT || 80, function () {
   console.log("LineBot is runnning.");
 });
-
-var request = require("request");
-const config = {
-  APIKey: process.env.Zoom_APIKey,
-  APISecret: process.env.Zoom_APISecret,
-};
-
-const payload = {
-  iss: config.APIKey,
-  exp: new Date().getTime() + 5000,
-};
-
-const token = jwt.sign(payload, config.APISecret);
-
-var options = {
-  uri: "https://api.zoom.us/v2/users/" + process.env.ZoomId,
-  qs: {
-    status: "active",
-  },
-  auth: {
-    bearer: token,
-  },
-  headers: {
-    "User-Agent": "Zoom-api-Jwt-Request",
-    "content-type": "application/json",
-  },
-  json: true, //Parse the JSON string in the response
-};
-
-rp(options)
-  .then(function (response) {
-    //logic for your response
-    console.log("User has", response);
-  })
-  .catch(function (err) {
-    // API call failed...
-    console.log("API call failed, reason ", err);
-  });
