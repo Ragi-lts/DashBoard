@@ -38,6 +38,7 @@ bot.on("message", function (event) {
     .catch(function (error) {
       console.log("Error", error);
     });
+  console.log(username);
   event.reply(username);
 });
 
