@@ -2,7 +2,7 @@
 require("dotenv").config();
 
 const { Client } = require("pg");
-const exports = require("webpack");
+
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: {
