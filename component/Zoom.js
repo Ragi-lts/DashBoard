@@ -1,3 +1,5 @@
+const exports = require("webpack");
+
 const config = {
   APIKey: process.env.Zoom_APIKey,
   APISecret: process.env.Zoom_APISecret,
@@ -13,7 +15,7 @@ function getToken() {
   return token;
 }
 
-function getConfig() {
+exports.getConfig = function () {
   var options = {
     uri: "https://api.zoom.us/v2/users/" + process.env.ZoomId,
     qs: {
@@ -29,7 +31,7 @@ function getConfig() {
     json: true, //Parse the JSON string in the response
   };
   return PostZoom(options);
-}
+};
 
 function PostZoom(options) {
   const rp = require("request-promise");
