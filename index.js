@@ -33,6 +33,9 @@ bot.on("message", function (event) {
     .reply(event.message.text)
     .then(function (data) {
       console.log("Success", event.source.userId, event.message.text);
+      event.source.profile().then(function (profile) {
+        event.reply("Hello" + profile.displayName);
+      });
     })
     .catch(function (error) {
       console.log("Error", error);
