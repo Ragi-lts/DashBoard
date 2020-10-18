@@ -46,8 +46,7 @@ bot.on("message", function (event) {
       "19:00",
       new Date().toString
     );
-    console.log(data);
-    event.reply(JSON.stringify(data));
+    event.reply(data);
   });
 });
 
