@@ -32,7 +32,7 @@ bot.on("message", function (event) {
   event
     .reply(event.message.text)
     .then(function (data) {
-      console.log("Success", event);
+      console.log("Success", JSON.stringify(event));
     })
     .catch(function (error) {
       console.log("Error", error);
