@@ -33,12 +33,13 @@ bot.on("message", function (event) {
     .reply(event.message.text)
     .then(function (data) {
       console.log("Success", event.source.userId, event.message.text);
+      console.log(event.source.profile());
     })
     .catch(function (error) {
       console.log("Error", error);
     });
-  event.source.profile().then(function (profile) {
-    event.reply("Hello " + profile.displayName);
+  bot.getUserProfile(event.source.userId).then((profile) => {
+    console.log(profile.displayName);
   });
 });
 
