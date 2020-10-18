@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const linebot = require("linebot");
 const express = require("express");
 const app = express();
@@ -45,7 +47,7 @@ app.listen(process.env.PORT || 80, function () {
 var request = require("request");
 const config = {
   APIKey: process.env.Zoom_APIKey,
-  APISecret: process.env.Zoom_Secret,
+  APISecret: process.env.Zoom_APISecret,
 };
 
 const payload = {
