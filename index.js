@@ -6,6 +6,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const Zoom = require("./component/Zoom");
+const db = require("./component/Database");
 
 var bot = linebot({
   channelId: process.env.CHANNEL_ID,
@@ -33,6 +34,7 @@ bot.on("message", function (event) {
     .then(function (data) {
       console.log("Success", data);
       //  console.log(Zoom.getConfig());
+      console.log(db.pool());
     })
     .catch(function (error) {
       console.log("Error", error);
