@@ -47,7 +47,9 @@ bot.on("message", function (event) {
       "19:00",
       new Date().toString
     );
-    bot.reply(data);
+    bot.reply(data).catch(function (err) {
+      console.log("Err:", err);
+    });
   });
 });
 
