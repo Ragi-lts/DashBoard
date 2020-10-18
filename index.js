@@ -47,7 +47,6 @@ bot.on("message", function (event) {
       new Date().toString
     );
     console.log(data);
-    bot.reply(profile.displayName);
     bot.reply(data);
   });
 });
