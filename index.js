@@ -29,6 +29,7 @@ app.post("/linewebhook", parser, function (req, res) {
 });
 
 bot.on("message", function (event) {
+  let username = bot.getUserProfile(event.source.userId);
   event
     .reply(event.message.text)
     .then(function (data) {
@@ -37,9 +38,7 @@ bot.on("message", function (event) {
     .catch(function (error) {
       console.log("Error", error);
     });
-  event.source.profile().then(function (profile) {
-    event.reply("Hello" + profile.displayName);
-  });
+  event.reply(username);
 });
 
 app.listen(process.env.PORT || 80, function () {
