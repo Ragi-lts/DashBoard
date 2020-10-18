@@ -47,7 +47,7 @@ bot.on("message", function (event) {
       "19:00",
       new Date().toString
     );
-    bot
+    event
       .reply(data)
       .then(function () {
         console.log("Success");
