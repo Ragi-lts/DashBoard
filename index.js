@@ -7,6 +7,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const Zoom = require("./component/Zoom");
 const db = require("./component/Database");
+const inform = require("./component/Inform");
 
 var bot = linebot({
   channelId: process.env.CHANNEL_ID,
@@ -39,7 +40,15 @@ bot.on("message", function (event) {
       console.log("Error", error);
     });
   bot.getUserProfile(event.source.userId).then((profile) => {
-    console.log(profile.displayName);
+    let data = inform.FinishResister(
+      profile.displayName,
+      "TEST",
+      "11/21",
+      "19:00",
+      new Date().toString
+    );
+    bot.reply(profile.displayName);
+    bot.reply(data);
   });
 });
 
