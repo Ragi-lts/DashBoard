@@ -1,4 +1,10 @@
-function FinishResister(Name, Descript, StartDay, StartTime, RecieveTime) {
+exports.FinishResister = function (
+  Name,
+  Descript,
+  StartDay,
+  StartTime,
+  RecieveTime
+) {
   var message = {
     type: "bubble",
     size: "giga",
@@ -123,4 +129,4 @@ function FinishResister(Name, Descript, StartDay, StartTime, RecieveTime) {
   };
 
   return JSON.stringify(message);
-}
+};
