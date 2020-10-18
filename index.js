@@ -34,7 +34,6 @@ bot.on("message", function (event) {
     .reply(event.message.text)
     .then(function (data) {
       console.log("Success", event.source.userId, event.message.text);
-      console.log(event.source.profile());
     })
     .catch(function (error) {
       console.log("Error", error);
@@ -47,6 +46,7 @@ bot.on("message", function (event) {
       "19:00",
       new Date().toString
     );
+    console.log(data);
     bot.reply(profile.displayName);
     bot.reply(data);
   });
