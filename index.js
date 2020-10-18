@@ -1,6 +1,7 @@
 const linebot = require("linebot");
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");
 
 var bot = linebot({
   channelId: process.env.CHANNEL_ID,
@@ -9,8 +10,18 @@ var bot = linebot({
 });
 
 const linebotParser = bot.parser();
-
-app.post("/linewebhook", linebotParser);
+const parser = bodyParser.json({
+  verify: function (req, res, buf, encoding) {
+    req.rawBody = buf.toString(encoding);
+  },
+});
+app.post("/linewebhook", parser, function (req, res) {
+  if (!bot.verify(req.rawBody, req.get("X-Kube-Signature"))) {
+    return res.sendStatus(400);
+  }
+  bot.parse(req.body);
+  return res.json({});
+});
 
 bot.on("message", function (event) {
   event
