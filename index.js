@@ -34,7 +34,7 @@ bot.on("message", function (event) {
     .then(function (data) {
       console.log("Success", data);
       //  console.log(Zoom.getConfig());
-      console.log(db.pool());
+      console.log(db.getAllRec("test_table"));
     })
     .catch(function (error) {
       console.log("Error", error);

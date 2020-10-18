@@ -1,12 +1,21 @@
 //ENV LOADING
 require("dotenv").config();
-const pg = require("pg");
 
-exports.pool = function () {
-  const pool = new pg.Pool({
-    url: process.env.DATABASE_URL,
-  });
-  pool.query("SELECT * FROM test_table").then((result) => {
-    console.log("Success", result);
+const { Client } = require("pg");
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
+
+exports.getAllRec = function (table) {
+  client.connect();
+  client.query(`SELECT * FROM ${table};`, (err, res) => {
+    if (err) throw err;
+    for (let row of res.rows) {
+      console.log(JSON.stringify(row));
+    }
+    client.end();
   });
 };
