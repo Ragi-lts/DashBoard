@@ -127,6 +127,5 @@ exports.FinishResister = function (
       offsetTop: "none",
     },
   };
-
-  return JSON.stringify(message);
+  return message;
 };
