@@ -9,14 +9,14 @@ var bot = linebot({
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
 });
 
-const linebotParser = bot.parser();
 const parser = bodyParser.json({
   verify: function (req, res, buf, encoding) {
     req.rawBody = buf.toString(encoding);
   },
 });
+
 app.post("/linewebhook", parser, function (req, res) {
-  if (!bot.verify(req.rawBody, req.get("X-Kube-Signature"))) {
+  if (!bot.verify(req.rawBody, req.get("X-Line-Signature"))) {
     return res.sendStatus(400);
   }
   bot.parse(req.body);
