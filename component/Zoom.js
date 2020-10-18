@@ -13,6 +13,7 @@ function getToken() {
   return token;
 }
 
+//外部にfunctionとして提供する場合はexports.XXXXX = {};
 exports.getConfig = function () {
   var options = {
     uri: "https://api.zoom.us/v2/users/" + process.env.ZoomId,
