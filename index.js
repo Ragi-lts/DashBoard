@@ -47,7 +47,7 @@ bot.on("message", function (event) {
       new Date().toString
     );
     console.log(data);
-    event.reply(data);
+    event.reply(JSON.stringify(data));
   });
 });
 
