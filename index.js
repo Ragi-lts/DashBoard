@@ -32,7 +32,7 @@ bot.on("message", function (event) {
     .reply(event.message.text)
     .then(function (data) {
       console.log("Success", data);
-      console.log(Zoom.getConfig());
+      //console.log(Zoom.getConfig());
     })
     .catch(function (error) {
       console.log("Error", error);
