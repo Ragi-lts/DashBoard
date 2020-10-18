@@ -1,5 +1,3 @@
-const exports = require("webpack");
-
 const config = {
   APIKey: process.env.Zoom_APIKey,
   APISecret: process.env.Zoom_APISecret,

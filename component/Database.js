@@ -1,7 +1,6 @@
 //ENV LOADING
 require("dotenv").config();
 const pg = require("pg");
-const exports = require("webpack");
 
 exports.pool = pg.Pool({
   host: process.env.ENV_HOST,
