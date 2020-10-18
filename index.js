@@ -39,7 +39,6 @@ bot.on("message", function (event) {
       console.log("Error", error);
     });
   bot.getUserProfile(event.source.userId).then((profile) => {
-    console.log(profile.displayName);
     let data = inform.FinishResister(
       profile.displayName,
       "TEST",
