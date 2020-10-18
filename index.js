@@ -46,34 +46,8 @@ bot.on("message", function (event) {
       "19:00",
       new Date().toString
     );
-    event
-      .reply(data)
-      .then(function () {
-        console.log("Success");
-      })
-      .catch(function (err) {
-        console.log("Err:", err);
-      });
-    event.reply({
-      type: "template",
-      altText: "this is a confirm template",
-      template: {
-        type: "confirm",
-        text: "Are you sure?",
-        actions: [
-          {
-            type: "message",
-            label: "Yes",
-            text: "yes",
-          },
-          {
-            type: "message",
-            label: "No",
-            text: "no",
-          },
-        ],
-      },
-    });
+    console.log(data);
+    event.reply(data);
   });
 });
 
