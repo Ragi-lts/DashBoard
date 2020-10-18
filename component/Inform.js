@@ -10,124 +10,112 @@ exports.FinishResister = function (
     altText: "this is a flex message",
     contents: {
       type: "bubble",
-      size: "giga",
-      direction: "ltr",
       body: {
         type: "box",
         layout: "vertical",
         contents: [
           {
             type: "text",
-            text: Name + "さん",
-            margin: "none",
+            text: "会議の参加登録が完了しました",
+            weight: "bold",
             size: "lg",
+            align: "center",
+          },
+          {
+            type: "text",
+            size: "sm",
+            wrap: true,
+            text: "descript",
+            margin: "md",
           },
           {
             type: "separator",
-            margin: "xs",
+            margin: "xxl",
           },
           {
             type: "box",
             layout: "vertical",
+            margin: "xxl",
+            spacing: "sm",
             contents: [
               {
                 type: "box",
-                layout: "vertical",
-                contents: [],
+                layout: "horizontal",
+                contents: [
+                  {
+                    type: "text",
+                    text: "開催日",
+                    size: "md",
+                    color: "#555555",
+                    flex: 1,
+                    align: "center",
+                  },
+                  {
+                    type: "text",
+                    text: "Day",
+                    size: "md",
+                    color: "#111111",
+                    align: "center",
+                    flex: 1,
+                  },
+                ],
+              },
+              {
+                type: "box",
+                layout: "horizontal",
+                contents: [
+                  {
+                    type: "text",
+                    text: "開始時間",
+                    size: "md",
+                    color: "#555555",
+                    flex: 1,
+                    align: "center",
+                  },
+                  {
+                    type: "text",
+                    text: "Startat",
+                    size: "md",
+                    color: "#111111",
+                    align: "center",
+                    flex: 1,
+                  },
+                ],
               },
             ],
-            spacing: "none",
-            margin: "md",
+          },
+          {
+            type: "separator",
+            margin: "xxl",
           },
           {
             type: "text",
-            text: "会議参加登録完了のお知らせ",
-            align: "center",
+            size: "md",
             wrap: true,
-            weight: "bold",
-            size: "lg",
-            margin: "none",
-          },
-          {
-            type: "text",
-            text: Descript,
-            margin: "md",
-          },
-          {
-            type: "separator",
+            text: "参加URLについては，開始15分前までに配信いたします．",
             margin: "md",
           },
           {
             type: "box",
-            layout: "baseline",
-            contents: [
-              {
-                type: "text",
-                text: "開催日",
-                align: "center",
-              },
-              {
-                type: "text",
-                text: StartDay,
-                align: "center",
-              },
-            ],
-            margin: "lg",
-          },
-          {
-            type: "box",
-            layout: "baseline",
-            contents: [
-              {
-                type: "text",
-                text: "開催日時",
-                align: "center",
-              },
-              {
-                type: "text",
-                text: StartTime,
-                align: "center",
-              },
-            ],
-            margin: "lg",
-          },
-          {
-            type: "separator",
+            layout: "horizontal",
             margin: "md",
-          },
-          {
-            type: "box",
-            layout: "baseline",
             contents: [
               {
                 type: "text",
-                text:
-                  "参加URLやパスワードについては，開催時間15分前までにお知らせします．",
-                wrap: true,
-              },
-            ],
-            margin: "lg",
-          },
-          {
-            type: "box",
-            layout: "vertical",
-            contents: [
-              {
-                type: "separator",
-                margin: "md",
-              },
-              {
-                type: "text",
-                text: RecieveTime,
+                text: "@管理者",
+                color: "#aaaaaa",
+                size: "md",
                 align: "end",
               },
             ],
           },
         ],
-        spacing: "none",
-        margin: "none",
-        paddingAll: "xxl",
-        offsetTop: "none",
+        offsetTop: "sm",
+      },
+      styles: {
+        footer: {
+          separator: true,
+        },
       },
     },
   };
