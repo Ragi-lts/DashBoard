@@ -1,7 +1,7 @@
 //ENV LOADING
 require("dotenv").config();
 
-const linebot = require("linebot");
+const {LineClient} = require('messaging-api-line')
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -9,11 +9,12 @@ const Zoom = require("./component/Zoom");
 const db = require("./component/Database");
 const inform = require("./component/Inform");
 
-var bot = linebot({
-  channelId: process.env.CHANNEL_ID,
+const client = new LineClient({
+  accessToken: process.env.CHANNEL_ACCESS_TOKEN,
   channelSecret: process.env.CHANNEL_SECRET,
-  channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
 });
+
+//channelId: process.env.CHANNEL_ID,
 
 const parser = bodyParser.json({
   verify: function (req, res, buf, encoding) {
