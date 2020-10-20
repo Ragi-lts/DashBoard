@@ -26,10 +26,10 @@ function handleEvent(event) {
   if (event.type !== "message" || event.message.type !== "text") {
     return Promise.resolve(null);
   }
-
+  db.getAllRec("test_table");
   return client.replyMessage(
     event.replyToken,
-    inform.FinishResister("all", "descript", "startd", "startt")
+    inform.FinishResister("all", "Sample", "descript", "startd", "startt")
   );
 }
 

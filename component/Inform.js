@@ -1,4 +1,10 @@
-exports.FinishResister = function (Name, Descript, StartDay, StartTime) {
+exports.FinishResister = function (
+  Name,
+  Subject,
+  Descript,
+  StartDay,
+  StartTime
+) {
   var message = {
     type: "flex",
     altText: "this is a flex message",
@@ -25,6 +31,28 @@ exports.FinishResister = function (Name, Descript, StartDay, StartTime) {
           {
             type: "separator",
             margin: "xxl",
+          },
+          {
+            type: "box",
+            layout: "horizontal",
+            contents: [
+              {
+                type: "text",
+                text: "議題",
+                size: "md",
+                color: "#555555",
+                flex: 1,
+                align: "center",
+              },
+              {
+                type: "text",
+                text: Subject,
+                size: "md",
+                color: "#111111",
+                align: "center",
+                flex: 1,
+              },
+            ],
           },
           {
             type: "box",
