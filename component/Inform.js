@@ -34,32 +34,32 @@ exports.FinishResister = function (
           },
           {
             type: "box",
-            layout: "horizontal",
-            contents: [
-              {
-                type: "text",
-                text: "議題",
-                size: "md",
-                color: "#555555",
-                flex: 1,
-                align: "center",
-              },
-              {
-                type: "text",
-                text: Subject,
-                size: "md",
-                color: "#111111",
-                align: "center",
-                flex: 1,
-              },
-            ],
-          },
-          {
-            type: "box",
             layout: "vertical",
             margin: "xxl",
             spacing: "sm",
             contents: [
+              {
+                type: "box",
+                layout: "horizontal",
+                contents: [
+                  {
+                    type: "text",
+                    text: "議題",
+                    size: "md",
+                    color: "#555555",
+                    flex: 1,
+                    align: "center",
+                  },
+                  {
+                    type: "text",
+                    text: Subject,
+                    size: "md",
+                    color: "#111111",
+                    align: "center",
+                    flex: 1,
+                  },
+                ],
+              },
               {
                 type: "box",
                 layout: "horizontal",
