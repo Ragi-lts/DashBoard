@@ -22,16 +22,21 @@ app.post("/linewebhook", line.middleware(config), (req, res) => {
     });
 });
 
-//channelId: process.env.CHANNEL_ID,
 function handleEvent(event) {
   if (event.type !== "message" || event.message.type !== "text") {
     return Promise.resolve(null);
   }
 
-  return client.replyMessage(event.replyToken, {
-    type: "text",
-    text: event.message.text,
-  });
+  return client.replyMessage(
+    event.replyToken,
+    inform.FinishResister(
+      "all",
+      "descript",
+      "startd",
+      "startt",
+      new Date().toLocaleDateString("ja")
+    )
+  );
 }
 
 app.listen(process.env.PORT || 80, function () {
