@@ -1,10 +1,4 @@
-exports.FinishResister = function (
-  Name,
-  Descript,
-  StartDay,
-  StartTime,
-  RecieveTime
-) {
+exports.FinishResister = function (Name, Descript, StartDay, StartTime) {
   var message = {
     type: "flex",
     altText: "this is a flex message",
@@ -25,7 +19,7 @@ exports.FinishResister = function (
             type: "text",
             size: "sm",
             wrap: true,
-            text: "descript",
+            text: Descript,
             margin: "md",
           },
           {
@@ -52,7 +46,7 @@ exports.FinishResister = function (
                   },
                   {
                     type: "text",
-                    text: "Day",
+                    text: StartDay,
                     size: "md",
                     color: "#111111",
                     align: "center",
@@ -74,7 +68,7 @@ exports.FinishResister = function (
                   },
                   {
                     type: "text",
-                    text: "Startat",
+                    text: StartTime,
                     size: "md",
                     color: "#111111",
                     align: "center",
@@ -90,7 +84,7 @@ exports.FinishResister = function (
           },
           {
             type: "text",
-            size: "md",
+            size: "sm",
             wrap: true,
             text: "参加URLについては，開始15分前までに配信いたします．",
             margin: "md",

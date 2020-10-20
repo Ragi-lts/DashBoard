@@ -29,13 +29,7 @@ function handleEvent(event) {
 
   return client.replyMessage(
     event.replyToken,
-    inform.FinishResister(
-      "all",
-      "descript",
-      "startd",
-      "startt",
-      new Date().toLocaleDateString("ja")
-    )
+    inform.FinishResister("all", "descript", "startd", "startt")
   );
 }
 
